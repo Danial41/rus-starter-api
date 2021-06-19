@@ -1,5 +1,5 @@
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :image
+  attributes :id, :title, :description, :total_sum, :image
   has_one :user
   
   def image
