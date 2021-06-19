@@ -1,5 +1,16 @@
 class ProjectsController < ApplicationController
 
+    def index
+        projects = Project.all
+
+        unless projects.empty?
+            projects_serializer = projects
+            render json: {status: :ok, data: projects_serializer}
+        else
+            render json: {status: 404, message: 'Projects were not found'}
+        end
+    end
+
     def create
         project = @user.projects.build(project_params)
 
