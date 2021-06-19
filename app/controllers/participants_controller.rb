@@ -1,4 +1,18 @@
 class ParticipantsController < ApplicationController
+
+    def pending_participants
+        project = Project.find(params[:id])
+
+        pending_participants = project.participants.find({status: 'pending'})
+
+        unless pending_participants
+            pending_participants_serializer = parse_json pending_participants
+            render json: {status: :ok, data: pending_participants_serializer}
+        else
+            render json: {status: 404, message: pending_participants.errors.full_messages}
+        end
+    end
+
     def join_team
         project = Project.find(params[:id])
         participant = project.participants.create(user: @user)

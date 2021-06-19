@@ -12,6 +12,10 @@ class ProfilesController < ApplicationController
     def create
         profile = @user.create_profile(profile_params)
 
+        if profile
+            return update
+        end
+
         if profile.valid?
             profile_serializer = parse_json profile
             render json: {status: :ok, data: profile_serializer}
