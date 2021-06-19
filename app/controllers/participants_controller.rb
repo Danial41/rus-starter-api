@@ -3,7 +3,7 @@ class ParticipantsController < ApplicationController
     def pending_participants
         project = Project.find(params[:id])
 
-        pending_participants = project.participants.find({status: 'pending'})
+        pending_participants = project.participants
 
         unless pending_participants
             pending_participants_serializer = parse_json pending_participants
