@@ -26,6 +26,6 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.permit(:total_sum, :title, :description)
+        params.permit(:total_sum, :title, :description, :image)
     end
 end
