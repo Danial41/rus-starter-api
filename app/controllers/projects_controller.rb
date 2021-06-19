@@ -23,6 +23,17 @@ class ProjectsController < ApplicationController
         end
     end
 
+    def show
+        project = Project.find(params[:id])
+
+        if project
+            project_serializer = parse_json project
+            render json: {success: true, data: project_serializer}
+        else
+            render json: {success: false, error: project.error.full_messages}
+        end
+    end
+
     private
 
     def project_params
