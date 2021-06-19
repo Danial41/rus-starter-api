@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     end
 
     def create
-        if profile
+        unless @user.profile.nil?
             return update
         end
 
