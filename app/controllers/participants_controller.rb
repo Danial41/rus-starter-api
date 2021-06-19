@@ -5,11 +5,11 @@ class ParticipantsController < ApplicationController
 
         pending_participants = project.participants
 
-        unless pending_participants
+        unless pending_participants.empty?
             pending_participants_serializer = parse_json pending_participants
             render json: {status: :ok, data: pending_participants}
         else
-            render json: {status: 404, message: pending_participants.errors.full_messages}
+            render json: {status: 404, message: 'Participants were not found'}
         end
     end
 
