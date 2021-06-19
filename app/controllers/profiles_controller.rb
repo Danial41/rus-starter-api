@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
     def update
         # profile = Profile.find(params[:id])
-        profile = @user.profile.update_attributes(profile_params)
+        profile = @user.profile.update(profile_params)
 
         profile_serializer = parse_json profile
 
