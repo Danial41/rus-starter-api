@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
         projects = Project.all
 
         unless projects.empty?
-            projects_serializer = projects
+            projects_serializer = parse_json projects
             render json: {status: :ok, data: projects_serializer}
         else
             render json: {status: 404, message: 'Projects were not found'}
