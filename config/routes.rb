@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   post '/join_team/:id', to: 'participants#join_team'
   get  '/pending_participants', to: 'participants#pending_participants'
+  put '/edit', to: 'profiles#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

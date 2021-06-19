@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
 
     def update
-        profile = Profile.find(params[:id])
-        profile.update(profile_params)
+        # profile = Profile.find(params[:id])
+        profile = @user.profile.update_attributes(profile_params)
 
         profile_serializer = parse_json profile
 
@@ -10,11 +10,11 @@ class ProfilesController < ApplicationController
     end
 
     def create
-        profile = @user.create_profile(profile_params)
-
         if profile
             return update
         end
+
+        profile = @user.create_profile(profile_params)
 
         if profile.valid?
             profile_serializer = parse_json profile
