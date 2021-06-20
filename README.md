@@ -53,7 +53,7 @@
 
 ### Ссылка на приложение файл
 
-[Демо - ](https://tender-bose-606bf0.netlify.app/) :point_left:
+[Демо - ](https://eloquent-liskov-60da21.netlify.app/#/) :point_left:
 
 ### Сделано с помощью
 Этот проект сделан с помощью:
